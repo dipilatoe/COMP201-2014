@@ -21,7 +21,7 @@ int main()
 		ouf << "x\tx^2\tCurrent Sum\n";
 		ouf << "=\t===\t===========\n";
 		while (inf >> num)
-			ouf << num << "\t" << num * 2 << "\t" << sum + num << endl;
+			ouf << num << "\t" << num * num << "\t" << sum + num << endl;
 	}
 	inf.close(); ouf.close();
 	return 0;
