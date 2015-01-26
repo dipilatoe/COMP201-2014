@@ -1,8 +1,3 @@
-//partially works right now
-//only properly computes input of an operator every 2 ints
-//solution in handling of calling ints out of stack in calculations
-
-
 #include <iostream>
 #include <iostream>
 #include <cstdlib>
@@ -15,7 +10,7 @@ void operation(string op);
 
 int main()
 {
-	int string_to_int, value;
+	int string_to_int;
 	string input="1";
 	cout << "RPN Calculator" << endl;
 	cout << "Enter operation one character at a time.\n";
@@ -42,29 +37,29 @@ void operation(string op)
 {
 	int value;
 	if (op == "+")
-	{		
-		value = stack[1] + stack[0];
+	{
+		value = stack[stack.size()-1] + stack[stack.size()-2];
 		stack.pop_back();
 		stack.pop_back();
 		stack.push_back(value);
 	}
 	else if (op == "-")
 	{
-		value = stack[0] - stack[1];
+		value = stack[stack.size() - 2] - stack[stack.size() - 1];
 		stack.pop_back();
 		stack.pop_back();
 		stack.push_back(value);
 	}
 	else if (op == "*")
 	{
-		value = stack[1] * stack[0];
+		value = stack[stack.size() - 1] * stack[stack.size() - 2];
 		stack.pop_back();
 		stack.pop_back();
 		stack.push_back(value);
 	}
 	else if (op == "/")
 	{
-		value = stack[0] / stack[1];
+		value = stack[stack.size() - 2] / stack[stack.size() - 1];
 		stack.pop_back();
 		stack.pop_back();
 		stack.push_back(value);
