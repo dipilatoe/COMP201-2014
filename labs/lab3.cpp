@@ -111,6 +111,9 @@ Model::~Model() {
 // That is, is the row within the height, and is the column within the width?
 // Return whether it is or isn't.
 bool Model::valid(int row, int column) {
+	if (row<=getHeight() || column<=getWidth()){
+		return false;
+	}
     return true;
 }
 bool Model::matched(int row, int column) {
@@ -120,6 +123,10 @@ bool Model::matched(int row, int column) {
 void Model::flip(int row, int column) {
     // If the row and column are not valid, break out and don't do anything
     if (!valid(row, column)) { return; }
+	else {
+	
+	return;
+	}
     
     // If the last selected row and column are invalid,
         // It means we're selecting the first "cell" to flip
